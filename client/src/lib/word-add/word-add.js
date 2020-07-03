@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./word-add.css";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import API from '../../utils/API';
 
 export function WordAdd(props) {
   const [word, setWord] = useState("");
   const handleChange = (event) => {
     setWord(event.target.value);
   };
-  const submit = () => {
+  const submit = async () => {
+    await API.createWord(word);
   };
   return (
     <form onSubmit={(event) => {submit(); event.preventDefault();}}>

@@ -72,6 +72,22 @@ async function login(req, res) {
   }
 }
 
+async function createWord(req, res) {
+  try {
+    const findUsers = await User.find();
+    const findUser = findUsers[0];
+    const word = req.body;
+    let words = findUser.words;
+    if (!words) words = [];
+    words.push(word);
+    findUser.words = words;
+    await findUser.save();
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+}
+
 // Export functions
 exports.login = login;
 exports.signup = signup;
+exports.createWord = createWord;

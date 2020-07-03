@@ -15,6 +15,9 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: true
+    },
+    words: {
+      type: Array
     }
   },
   { timestamps: { createdAt: "created_at" } }

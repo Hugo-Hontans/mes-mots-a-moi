@@ -22,6 +22,10 @@ export default {
     return axios.post(`${burl}/mesmotsamoi/user/signup`, send, { headers: headers });
   },
 
+  createWord: function(word) {
+    return axios.post(`${burl}/mesmotsamoi/user/createword`, word, { headers: headers });
+  },
+
   isAuth: function() {
     return localStorage.getItem("token") !== null;
   },
