@@ -69,7 +69,7 @@ export class Signup extends React.Component {
             Or
         </div>
         <div className="d-flex justify-content-center signup">
-            <Link to="/login">
+            <Link to="/">
                 <Button>
                     Log in
                 </Button>

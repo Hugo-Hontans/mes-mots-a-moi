@@ -6,7 +6,7 @@ import API from "../../utils/API";
 export class Logout extends React.Component {
   disconnect = () => {
     API.logout();
-    window.location = "/login";
+    window.location = "/";
   };
   render() {
     return (

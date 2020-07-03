@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { Home } from "./lib/home/home";
 import { Login } from "./lib/login/login.js";
 import { Signup } from "./lib/signup/signup.js";
@@ -30,9 +30,15 @@ class App extends React.Component {
         <section className="container">
           <div className="row justify-content-center">
             <Switch>
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/home" component={Home} />
+              <Route path="/home">
+                {
+                  API.isAuth()
+                  ? <Home></Home>
+                  : <Redirect to="/" />
+                }
+              </Route>
             </Switch>
           </div>
         </section>
